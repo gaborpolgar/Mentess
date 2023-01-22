@@ -43,7 +43,12 @@ var server = app.listen(3000,  "127.0.0.1", function () {
 
 const auth = function(req, res, next)
 {
+
+  console.log(req);return;
+
   db.getConnection( async (err, connection) => {
+
+    
 
     try
     {
