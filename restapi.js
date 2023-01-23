@@ -46,23 +46,23 @@ const auth = function(req, res, next)
 
   const token = JSON.parse(req.get("token")).accessToken;
   res.token = token;
-  console.log(`token: ${res.token}`);return;
+  //console.log(`token: ${res.token}`);return;
 
   db.getConnection( async (err, connection) => {
 
     
-
-    try
-    {
-        token=req.get("token");
-        console.log("Authban van:")
-        console.log(token);
-        console.log(req);
-    }
-    catch
-    {
-        res.send("Valami hiba történt")
-    }
+    // ez nem kell
+    // try
+    // {
+    //     token=req.get("token");
+    //     console.log("Authban van:")
+    //     console.log(token);
+    //     console.log(req);
+    // }
+    // catch
+    // {
+    //     res.send("Valami hiba történt")
+    // }
     var sql = "SELECT token FROM felhasznalok WHERE token =?";
     connection.query(sql, [token], function(error,results,fields)
     {
