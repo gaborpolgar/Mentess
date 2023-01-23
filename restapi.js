@@ -45,7 +45,8 @@ const auth = function(req, res, next)
 {
 
   const token = JSON.parse(req.get("token")).accessToken;
-  console.log(`token: ${token}`);return;
+  res.token = token;
+  console.log(`token: ${res.token}`);return;
 
   db.getConnection( async (err, connection) => {
 
