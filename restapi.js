@@ -44,7 +44,7 @@ var server = app.listen(3000,  "127.0.0.1", function () {
 const auth = function(req, res, next)
 {
 
-  console.log(typeof req.get("token"));
+  console.log(req.get("token").length);
   return;
   if (req.get("token") == null)
   {
