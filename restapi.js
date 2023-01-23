@@ -161,12 +161,11 @@ app.get("/toys/:id", async (req,res) => {
 //új rekord felvitele az adatbázisba
 
 //app.post("/toys",[auth, verify, async (req,res) => {
-app.post("/toys", [auth, async (req,res) => {
+app.post("/toys", auth, async (req,res) => {
   db.getConnection( async (err, connection) => {
       var postData  = req.body;
-      console.log("post kérés tokenje: ");
-      console.log(req.get("token"));
-      console.log(req);
+      console.log(`post kérés tokenje: ${res.token}`);
+      //console.log(req.get("token"));
       connection.query('INSERT INTO toys SET ?', postData, function (error, results, fields) {
        if (error) throw error;
        res.end(JSON.stringify(results));
@@ -175,7 +174,6 @@ app.post("/toys", [auth, async (req,res) => {
      
    });
   }
-]
   );
 
 
