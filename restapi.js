@@ -44,9 +44,7 @@ var server = app.listen(3000,  "127.0.0.1", function () {
 const auth = function(req, res, next)
 {
 
-  console.log(req.get("token").length);
-  return;
-  if (req.get("token") == null)
+  if (req.get("token").length == 0)
   {
     res.send("Nincs token")
     return;
