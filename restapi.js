@@ -44,7 +44,8 @@ var server = app.listen(3000,  "127.0.0.1", function () {
 const auth = function(req, res, next)
 {
 
-  console.log(req.get("token")["accessToken"]);return;
+  const token = req.get("token");
+  console.log(`token: ${token}`);return;
 
   db.getConnection( async (err, connection) => {
 
