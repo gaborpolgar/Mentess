@@ -44,6 +44,11 @@ var server = app.listen(3000,  "127.0.0.1", function () {
 const auth = function(req, res, next)
 {
 
+  if (req.get("token") == null)
+  {
+    res.send("Nincs token")
+    return;
+  }
   const token = JSON.parse(req.get("token")).accessToken;
   res.token = token;
   //console.log(`token: ${res.token}`);return;
