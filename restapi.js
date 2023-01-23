@@ -45,7 +45,7 @@ const auth = function(req, res, next)
 {
 
   const token = req.get("token");
-  console.log(`token: ${token}`);return;
+  console.log(`token: ${typeof token}`);return;
 
   db.getConnection( async (err, connection) => {
 
